@@ -51,7 +51,7 @@ service zabbix-agentd restart
 
 ### Проверка:
 ```bash
-zabbix_get -s HOST -k "lsimegaraid[DriveSlot0, inquiry]"
+zabbix_get -s HOST -k "lsimegaraid.data[DriveSlot0, inquiry]"
 ```
 
 # Файлы для загрузки
