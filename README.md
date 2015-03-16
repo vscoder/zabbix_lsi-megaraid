@@ -63,3 +63,5 @@ zabbix_get -s HOST -k "lsimegaraid.data[DriveSlot0, inquiry]"
 1. [Мониторинг LSI MegaRAID в Zabbix](http://wiki.enchtex.info/howto/zabbix/zabbix_megaraid_monitoring)
 2. [Мониторинг состояния HDD в RAID контроллере LSI MegaRAID под Linux, средствами Nagios.](https://ru.intel.com/business/community/?automodule=blog&amp;blogid=44433&amp;showentry=2452)
 3. [Intel Raid Controller RS2BL040 Slow Performance – BBU problems.](https://odesk.by/archives/1922)
+4. [Perc RAID Controllers](https://twiki.cern.ch/twiki/bin/view/FIOgroup/DiskRefPerc)
+5. [Adding a Hard Drive back into RAID on a Web Gateway 5000 or 5500 Intel based Appliance](https://community.mcafee.com/docs/DOC-5318)
