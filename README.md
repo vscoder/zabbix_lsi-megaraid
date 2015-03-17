@@ -4,7 +4,7 @@
 
 Скрипт имеет встроенную справку:
 ```bash
-# ./lsimegaraid_discovery_trapper.sh help
+ ./lsimegaraid_discovery_trapper.sh help
 WARNING: Correctly setup 'Hostname=' in config is REQUIRED!
 
 INFO: Number of array is default 0;
@@ -55,9 +55,9 @@ zabbix_get -s HOST -k "lsimegaraid.data[DriveSlot0, inquiry]"
 ```
 
 # Файлы для загрузки
-* [Конфигурационный файл **/etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf**](etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf)
-* [Код скрипта **/etc/zabbix/scripts/lsimegaraid_discovery_trapper.sh**](etc/zabbix/scripts/lsimegaraid_discovery_trapper.sh)
-* [Шаблон для **zabbix**](Template_LSIMegaRaid_trapper.xml)
+* [Конфигурационный файл /etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf](etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf)
+* [Код скрипта /etc/zabbix/scripts/lsimegaraid_discovery_trapper.sh](etc/zabbix/scripts/lsimegaraid_discovery_trapper.sh)
+* [Шаблон для zabbix](Template_LSIMegaRaid_trapper.xml)
 
 # Ссылки
 1. [Мониторинг LSI MegaRAID в Zabbix](http://wiki.enchtex.info/howto/zabbix/zabbix_megaraid_monitoring)
