@@ -1,25 +1,23 @@
 # Описание
 
-Скрипт мониторит по-умолчанию адаптер 0, т.е. когда в системе только одна плата **Raid** контроллера (опция **-a0**), но можно указать конкретный номер адаптера, если это необходимо.
+Скрипт мониторит все адаптеры, но они должны иметь номера по порядку, наптимер 0, 1, 2. Если это не так, например 0, 2 - то работать не будет.
 
 Скрипт имеет встроенную справку:
 ```bash
  ./lsimegaraid_discovery_trapper.sh help
 WARNING: Correctly setup 'Hostname=' in config is REQUIRED!
 
-INFO: Number of array is default 0;
+INFO: Get info about all arrays;
  Examples:
     Discovery is default action:
-        ./lsimegaraid_discovery_trapper.sh                            - physdiscovery disks for default array 0.
-        ./lsimegaraid_discovery_trapper.sh discovery                  - physdiscovery disks for default array 0.
-        ./lsimegaraid_discovery_trapper.sh discovery virtdiscovery    - virtdiscovery disks for custom array 0.
-        ./lsimegaraid_discovery_trapper.sh discovery virtdiscovery 1  - virtdiscovery disks for custom array 1.
-        ./lsimegaraid_discovery_trapper.sh discovery physdiscovery 1  - physdiscovery disks for custom array 1.
+        ./$(basename $0)                            - physdiscovery disks for all arrays.
+        ./$(basename $0) discovery                  - physdiscovery disks for all arrays.
+        ./$(basename $0) discovery virtdiscovery    - virtdiscovery disks for all arrays.
     Data sending to zabbix-server:
-        ./lsimegaraid_discovery_trapper.sh trapper    - send data to zabbix for default array 0.
-        ./lsimegaraid_discovery_trapper.sh trapper 1  - send data to zabbix for custom array 1.
+        ./$(basename $0) trapper    - send data to zabbix for all arrays.
 
 03.2015 - metajiji@gmail.com
+04.2018 - vsyscoder@gmail.com
 ```
 
 Скрипт поддерживает обнаружение (**discovery**) виртуальных и физических дисков в слотах. Отправка данных осуществляется через `zabbix_sender`.
@@ -39,7 +37,8 @@ chmod 750 /etc/zabbix/scripts/lsimegaraid_discovery_trapper.sh
 
 ### Не забываем про настройки в скрипте, где нужно указать полные пути до необходимых программ и конфигурационных файлов:
 ```bash
-MEGACLI='/usr/local/sbin/MegaCli'
+# MegaCli нужно запускать через sudo
+MEGACLI='/usr/bin/sudo /usr/local/sbin/MegaCli'
 ZABBIX_SENDER='/usr/local/bin/zabbix_sender'
 CONFIG='/etc/zabbix/zabbix_agentd.conf'
 ```
@@ -51,8 +50,19 @@ service zabbix-agentd restart
 
 ### Проверка:
 ```bash
-zabbix_get -s HOST -k "lsimegaraid.data[DriveSlot0, inquiry]"
+zabbix_get -s HOST -k "lsimegaraid.data[Adp0,DriveSlot0, inquiry]"
 ```
+не работает, так как данные отправляются через zabbix_sender и отсутствует соответствующий UserParam.
+Проверить можно discovery (должен вернуть json со списком адаптеров и дисков или виртуальных томов):
+```bash
+zabbix_get -s HOST -k "lsimegaraid.discovery[phisdiscovery]"
+zabbix_get -s HOST -k "lsimegaraid.discovery[virtdiscovery]"
+```
+ и trapper (вернёт 1 в случае, если данные на сервер отправлены, или 0 в случае ошибок):
+ ```bash
+ zabbix_get -s HOST -k "lsimegaraid.trapper"
+ ```
+ ВАЖНО: после назначения шаблона узлу сети, может пройти достаточно длительное время (десятки минут) прежде чем trapper начнёт успешно отправлять данные.
 
 # Файлы для загрузки
 * [Конфигурационный файл /etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf](etc/zabbix/zabbix_agentd.conf.d/lsimegaraid.conf)

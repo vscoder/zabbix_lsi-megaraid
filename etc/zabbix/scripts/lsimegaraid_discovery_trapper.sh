@@ -21,7 +21,7 @@ usage() {
 	        ./$(basename $0) trapper    - send data to zabbix for all arrays.
 
 	03.2015 - metajiji@gmail.com
-	04.2018 - koloskov@flexline.ru
+	04.2018 - vsyscoder@gmail.com
 _EOF
 }
 
