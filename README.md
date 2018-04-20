@@ -43,6 +43,11 @@ ZABBIX_SENDER='/usr/local/bin/zabbix_sender'
 CONFIG='/etc/zabbix/zabbix_agentd.conf'
 ```
 
+### В конфигурационном файле zabbix-агента должно быть явно задано имя узла сети
+```bash
+Hostname=<Имя узла сети>
+```
+
 ### Не забываем перезапустить агент, чтобы агент прочитал новый конфигурационный файл:
 ```bash
 service zabbix-agentd restart
