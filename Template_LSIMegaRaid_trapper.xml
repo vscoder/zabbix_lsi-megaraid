@@ -24,56 +24,12 @@
             </applications>
             <items>
                 <item>
-                    <name>Trapper0</name>
+                    <name>Trapper</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>lsimegaraid.trapper[0]</key>
-                    <delay>30</delay>
-                    <history>90</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI MegaRaid</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-
-                <item>
-                    <name>Trapper1</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>lsimegaraid.trapper[1]</key>
+                    <key>lsimegaraid.trapper</key>
                     <delay>30</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -113,11 +69,11 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>LSIMegaRaid0: Physical disks slot discovery</name>
+                    <name>LSIMegaRaid: Physical disks slot discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>lsimegaraid.discovery[physdiscovery,0]</key>
+                    <key>lsimegaraid.discovery[physdiscovery]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -146,12 +102,12 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Firmware State</name>
+                            <name>LSIMegaRaid: $1 $2 Firmware State</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},state]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},state]</key>
                             <delay>0</delay>
                             <history>365</history>
                             <trends>365</trends>
@@ -189,12 +145,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 has flagged a S.M.A.R.T alert</name>
+                            <name>LSIMegaRaid: $1 $2 has flagged a S.M.A.R.T alert</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},smart]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},smart]</key>
                             <delay>0</delay>
                             <history>365</history>
                             <trends>365</trends>
@@ -232,12 +188,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Inquiry Data</name>
+                            <name>LSIMegaRaid: $1 $2 Inquiry Data</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},inquiry]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},inquiry]</key>
                             <delay>0</delay>
                             <history>365</history>
                             <trends>365</trends>
@@ -275,12 +231,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Media Error Count</name>
+                            <name>LSIMegaRaid: $1 $2 Media Error Count</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},mediaerror]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},mediaerror]</key>
                             <delay>0</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -318,12 +274,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Other Error Count</name>
+                            <name>LSIMegaRaid: $1 $2 Other Error Count</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},othererror]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},othererror]</key>
                             <delay>0</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -361,12 +317,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Predictive Failure Count</name>
+                            <name>LSIMegaRaid: $1 $2 Predictive Failure Count</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},failurecount]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},failurecount]</key>
                             <delay>0</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -404,12 +360,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Temperature</name>
+                            <name>LSIMegaRaid: $1 $2 Temperature</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},temperature]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#PHYSNUM},temperature]</key>
                             <delay>0</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -449,8 +405,8 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},smart].str(No)}=0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} has flagged a S.M.A.R.T alert on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},smart].str(No)}=0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} has flagged a S.M.A.R.T alert on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -458,8 +414,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},inquiry].diff(0)}&gt;0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} inquiry data changed on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},inquiry].diff(0)}&gt;0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} inquiry data changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -467,8 +423,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},mediaerror].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} Media Error Count on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},mediaerror].last(0)}&gt;0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} Media Error Count on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -476,8 +432,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},othererror].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} Other Error Count on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},othererror].last(0)}&gt;0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} Other Error Count on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -485,8 +441,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},failurecount].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} Predictive Failure Count on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},failurecount].last(0)}&gt;0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} Predictive Failure Count on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -494,8 +450,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},state].str(Online)}=0</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} state is not online on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},state].str(Online)}=0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} state is not online on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -503,8 +459,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},temperature].last(0)}&gt;45</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} temperature is high on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},temperature].last(0)}&gt;45</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} temperature is high on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -512,8 +468,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},temperature].last(0)}&gt;49</expression>
-                            <name>LSIMegaRaid0: {#PHYSNUM} temperature is very high on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#PHYSNUM},temperature].last(0)}&gt;49</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#PHYSNUM} temperature is very high on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -525,11 +481,11 @@
                     <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>LSIMegaRaid0: Virtual disks discovery</name>
+                    <name>LSIMegaRaid: Virtual disks discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>lsimegaraid.discovery[virtdiscovery,0]</key>
+                    <key>lsimegaraid.discovery[virtdiscovery]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -558,12 +514,12 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 Bad Blocks Exist</name>
+                            <name>LSIMegaRaid: $1 $2 Bad Blocks Exist</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#VIRTNUM},badblock]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#VIRTNUM},badblock]</key>
                             <delay>0</delay>
                             <history>365</history>
                             <trends>365</trends>
@@ -601,12 +557,12 @@
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
-                            <name>LSIMegaRaid0: $1 State</name>
+                            <name>LSIMegaRaid: $1 $2 State</name>
                             <type>2</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>lsimegaraid.data[{#VIRTNUM},state]</key>
+                            <key>lsimegaraid.data[{#ADPNUM},{#VIRTNUM},state]</key>
                             <delay>0</delay>
                             <history>365</history>
                             <trends>365</trends>
@@ -646,8 +602,8 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#VIRTNUM},badblock].str(No)}=0</expression>
-                            <name>LSIMegaRaid0: {#VIRTNUM} Bad Blocks Exist on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#VIRTNUM},badblock].str(No)}=0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#VIRTNUM} Bad Blocks Exist on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -655,564 +611,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#VIRTNUM},state].str(Optimal)}=0</expression>
-                            <name>LSIMegaRaid0: {#VIRTNUM} state is not optimal on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-
-                <discovery_rule>
-                    <name>LSIMegaRaid1: Physical disks slot discovery</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>lsimegaraid.discovery[physdiscovery,1]</key>
-                    <delay>3600</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>30</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Firmware State</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},state]</key>
-                            <delay>0</delay>
-                            <history>365</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>4</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 has flagged a S.M.A.R.T alert</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},smart]</key>
-                            <delay>0</delay>
-                            <history>365</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>4</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Inquiry Data</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},inquiry]</key>
-                            <delay>0</delay>
-                            <history>365</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>4</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Media Error Count</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},mediaerror]</key>
-                            <delay>0</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Other Error Count</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},othererror]</key>
-                            <delay>0</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Predictive Failure Count</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},failurecount]</key>
-                            <delay>0</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Temperature</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#PHYSNUM},temperature]</key>
-                            <delay>0</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>C</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},smart].str(No)}=0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} has flagged a S.M.A.R.T alert on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},inquiry].diff(0)}&gt;0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} inquiry data changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},mediaerror].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} Media Error Count on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},othererror].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} Other Error Count on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},failurecount].last(0)}&gt;0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} Predictive Failure Count on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},state].str(Online)}=0</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} state is not online on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},temperature].last(0)}&gt;45</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} temperature is high on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#PHYSNUM},temperature].last(0)}&gt;49</expression>
-                            <name>LSIMegaRaid1: {#PHYSNUM} temperature is very high on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>LSIMegaRaid1: Virtual disks discovery</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>lsimegaraid.discovery[virtdiscovery,1]</key>
-                    <delay>3600</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>30</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 Bad Blocks Exist</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#VIRTNUM},badblock]</key>
-                            <delay>0</delay>
-                            <history>365</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>1</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>LSIMegaRaid1: $1 State</name>
-                            <type>2</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>lsimegaraid.data[{#VIRTNUM},state]</key>
-                            <delay>0</delay>
-                            <history>365</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>1</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>LSI MegaRaid</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#VIRTNUM},badblock].str(No)}=0</expression>
-                            <name>LSIMegaRaid1: {#VIRTNUM} Bad Blocks Exist on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#VIRTNUM},state].str(Optimal)}=0</expression>
-                            <name>LSIMegaRaid1: {#VIRTNUM} state is not optimal on {HOST.NAME}</name>
+                            <expression>{Template LSIMegaRaid_trapper:lsimegaraid.data[{#ADPNUM},{#VIRTNUM},state].str(Optimal)}=0</expression>
+                            <name>LSIMegaRaid: {#ADPNUM} {#VIRTNUM} state is not optimal on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
